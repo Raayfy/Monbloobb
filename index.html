@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ranah Pink · 25 Foto Pemandangan</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=DM+Sans:wght@400;500&display=swap">
+<style>
+:root{--pink:#ff2e88;--soft:#ffc2dd;--black:#0a0a0c;--panel:#16161a;--text:#f6eef2;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--black);color:var(--text);font-family:"DM Sans",system-ui,sans-serif;line-height:1.6}
+h1{font-family:"Unbounded","Arial Black",system-ui,sans-serif;line-height:1.1}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.1rem}
+:focus-visible{outline:3px solid var(--soft);outline-offset:3px}
+header{padding:3.2rem 0 2.2rem;background:linear-gradient(180deg,#0a0a0c,#2a0a1c 80%,#4a0d2c)}
+header h1{font-size:clamp(2rem,8vw,4rem);font-weight:800;max-width:13ch}
+header h1 span{color:var(--pink)}
+header p{margin-top:1rem;color:var(--soft);max-width:44ch}
+.steps{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.3rem;font-size:.9rem}
+.steps b{background:#ff2e8825;color:var(--pink);padding:.25rem .8rem;border-radius:999px;font-weight:500}
+main{padding:2rem 0 3rem}
+.grid{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fill,minmax(165px,1fr))}
+@media(min-width:700px){.grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}}
+.item{position:relative;background:var(--panel);border:1px solid #ff2e8830;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.ph{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:linear-gradient(180deg,#1b0612,#4a0d2c 60%,#a3185c)}
+.code{position:absolute;top:.5rem;left:.5rem;background:#0a0a0ccc;color:var(--soft);font-size:.75rem;padding:.1rem .55rem;border-radius:999px}
+.meta{padding:.7rem .9rem .5rem;flex:1}
+.meta b{display:block;font-weight:500}
+.meta small{color:var(--soft);opacity:.8}
+.counts{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem}
+.counts span{background:#ff2e8825;color:var(--pink);font-size:.78rem;padding:.1rem .6rem;border-radius:999px}
+.acts{padding:0 .9rem .9rem;display:grid;gap:.45rem}
+.btn{display:block;text-align:center;padding:.65rem 1rem;background:var(--pink);color:#fff;font-weight:500;text-decoration:none;border-radius:999px;font-size:.95rem}
+.btn.ghost{background:transparent;border:2px solid #ff2e8866;color:var(--soft);font-size:.85rem;padding:.45rem 1rem}
+.btn[aria-disabled="true"]{opacity:.4}
+footer{padding:1.6rem 0;font-size:.85rem;color:var(--soft);border-top:1px solid #ff2e8833}
+footer a{color:var(--pink)}
+</style></head><body>
+
+<header><div class="wrap">
+<h1>Vidio Skandal <span>Viral</span></h1>
+<p>Pilih Skandal yang diinginkan. Jumlah foto dan video di dalam tiap paket tertera di kartunya. Pilih paket, klik Beli untuk membayar, lalu tunjukkan bukti pembayaran di WhatsApp.</p>
+<div class="steps"><b>1 Pilih paket</b><b>2 Klik Beli dan bayar</b><b>3 Tunjukkan bukti di WhatsApp</b></div>
+</div></header>
+
+<main class="wrap"><div class="grid" id="grid"></div></main>
+
+<footer><div class="wrap">© 2026 Raayfy, Digital &amp; Kreatif · WhatsApp <a href="https://wa.me/6283834392360">+62 838-3439-2360</a></div></footer>
+
+<script>
+/* ========== ISI BAGIAN INI ========== */
+const WA_NUMBER = "6283834392360";   // nomor WhatsApp kamu, format 62...
+const PAYMENT_LINK = "";             // TEMPEL LINK PEMBAYARAN KAMU DI SINI, contoh: "https://link-bayar-kamu.com/abc"
+const PRICE = 50000;                 // harga standar, dipakai kalau sebuah paket tidak punya harga sendiri
+const DEFAULT_PHOTOS = 10;           // jumlah foto di tiap paket (kalau tidak diisi per paket)
+const DEFAULT_VIDEOS = 2;            // jumlah video di tiap paket (kalau tidak diisi per paket)
+
+/* 25 paket: [judul, file foto, link bayar khusus (boleh kosong), jumlah foto, jumlah video, harga]
+   - Contoh: ["Danau Maninjau","","",12,3,50000]  = 12 foto, 3 video, Rp 50.000
+   - Angka di bawah ini hanya contoh. Ganti sesuai isi dan harga paketmu.
+   - Kalau jumlah atau harga tidak ditulis, dipakai DEFAULT_PHOTOS, DEFAULT_VIDEOS, dan PRICE di atas.
+   - File foto kosong ("") = tampil gambar sementara.
+   - Link bayar khusus: isi kalau foto ini punya link sendiri. Kosong = pakai PAYMENT_LINK di atas. */
+const PHOTOS = [
+["Deraanjela","https://www.mediafire.com/file/8n49hhhedvmr333/IMG_20261019_102925.png/file","https://bayarlink.com/74PF7g",0,5,15000],["Mom Biti Ekslusif","","https://bayarlink.com/NL6pkM",0,65,25000],["Gea Anindia","","https://bayarlink.com/u9sU3c",10,6,15000],["SD","","",0,8,10000],["SMP","","",0,10,9000],
+["SMA","","",0,5,8000],["Guru Vs Murid","","",14,3,55000],["Maria Black","","",18,6,95000],["Ccaucaa","","",0,12,12000],["Chessy","","",0,3,5000],["Daisy Bae","","https://bayarlink.com/h946Xd",0,10,10000],
+["Cella","","",0,20,10000],["ItsAnggi","","",0,12,9000],["Laura","","",0,6,15000],["Nana Polos","","",0,4,5000],["Nay","","",0,5,10000],["Brutt","","https://bayarlink.com/zDdfsH",0,6,6500],["Msbrewwc","","https://bayarlink.com/8uHLcT",0,8,7500],
+["Prank Ojol Bali","","",0,2,9000],["Sasyamuw","","https://bayarlink.com/AttWcN",0,4,8000],["Silvia Air Mancur","","",0,4,7000],["Sok Imut Full All","","",0,1,5500],["Vell","","",0,3,10000],["Notstarla","","https://bayarlink.com/xARG6K",0,12,10000],
+["Urfaf","","",0,4,4500],["Skandal Viral","","",0,6,9500],["Aninoya Viral","","https://bayarlink.com/nCzMk4",0,9,6500],["Lylia Kasir Indomaret","","https://bayarlink.com/4mZHbN",0,3,5500],["SPPG VS BOS","","https://bayarlink.com/kw2zWc",0,3,4500],["Viral Viral","","https://bayarlink.com/nAV9Tj",0,48,30000],
+["Anime H - Request di Wa","","",0,0,10000],["Barat - Request di Wa","","",0,0,10000],["Nay","","",0,5,10000],
+  
+];
+/* ==================================== */
+
+const rp = n => "Rp " + n.toLocaleString("id-ID");
+const code = i => "P" + String(i + 1).padStart(2, "0");
+
+function scene(i) {
+  const v = i % 4, x = 60 + (i * 53) % 280;
+  const sun = '<circle cx="' + x + '" cy="' + (v === 3 ? 185 : 150) + '" r="' + (45 + (i % 3) * 8) + '" fill="#ff2e88"/>';
+  const land = [
+    '<path d="M0 300V170L80 100L150 160L230 80L320 170L400 120V300Z" fill="#14060e"/><path d="M0 300V230L100 180L200 235L300 190L400 235V300Z" fill="#0a0a0c"/>',
+    '<path d="M0 170L70 115L130 160L210 95L290 160L350 125L400 170V300H0Z" fill="#14060e"/><path d="M0 195H400V300H0Z" fill="#0a0a0c"/><path d="M120 225h160M150 245h100" stroke="#ff2e88" stroke-opacity=".55" stroke-width="4"/>',
+    '<path d="M0 300V130Q200 80 400 140V300Z" fill="#14060e"/><path d="M0 300V185Q200 135 400 195V300Z" fill="#0a0a0c" stroke="#ff2e88" stroke-width="3"/><path d="M0 300V250Q200 210 400 260V300Z" fill="#14060e" stroke="#ff2e88" stroke-width="3"/>',
+    '<path d="M0 200H400V300H0Z" fill="#0a0a0c"/><path d="M0 240q50-16 100 0t100 0 100 0 100 0" fill="none" stroke="#ff2e88" stroke-width="4"/><path d="M60 200Q64 140 72 90M72 90q-34-4-50 22M72 90q30-18 58 0M72 90q-20 6-24 36" fill="none" stroke="#0a0a0c" stroke-width="7" stroke-linecap="round"/>'
+  ][v];
+  return '<svg class="ph" viewBox="0 0 400 300" role="img" aria-label="Gambar sementara">' + sun + land + '</svg>';
+}
+
+const grid = document.getElementById("grid");
+PHOTOS.forEach((p, i) => {
+  const link = p[2] || PAYMENT_LINK;
+  const price = p[5] ?? PRICE;
+  const buy = link
+    ? '<a class="btn" href="' + link + '" target="_blank" rel="noopener noreferrer">Beli · ' + rp(price) + '</a>'
+    : '<span class="btn" aria-disabled="true">Segera hadir</span>';
+  const msg = "Halo, saya sudah bayar foto " + code(i) + " - " + p[0] + " (" + rp(price) + "). Ini bukti pembayaran saya.";
+  const proof = '<a class="btn ghost" href="https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg) + '" target="_blank" rel="noopener noreferrer">Tunjukkan bukti di WhatsApp</a>';
+  const el = document.createElement("article");
+  el.className = "item";
+  el.innerHTML = (p[1] ? '<img class="ph" loading="lazy" src="' + p[1] + '" alt="' + p[0] + '">' : scene(i)) +
+    '<span class="code">' + code(i) + '</span><div class="meta"><b>' + p[0] + '</b><small>' + rp(price) + '</small><div class="counts"><span>' + (p[3] ?? DEFAULT_PHOTOS) + ' foto</span><span>' + (p[4] ?? DEFAULT_VIDEOS) + ' video</span></div></div>' +
+    '<div class="acts">' + buy + proof + '</div>';
+  grid.appendChild(el);
+});
+</script>
+</body></html>
